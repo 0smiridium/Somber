@@ -1,8 +1,8 @@
 {
     GSThemeAuthors = (
-	"Bertrand Dekoninck"
+	"0smiridium"
     );
-    GSThemeDetails = "A dark theme with a blue accent and the Rik icons.";
+    GSThemeDetails = "A modern dark theme with Rik icons.";
     GSThemeDomain = {
 	GSBackHandlesWindowDecorations = YES;
 	GSMenuBarHeight = 26;
