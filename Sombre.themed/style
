@@ -1,0 +1,35 @@
+{
+  LargeDisplayFont = "Liberation Sans,sans serif:pixelsize=24";
+  HighlightColor = "#7aa2ff";
+  MenuTextExtendSpace = 0;
+  FTitleColor = "#edf4ff";
+  MenuTitleExtendSpace = 0;
+  MenuTextFont = "Liberation Sans,sans serif:pixelsize=12";
+  WorkspaceBack = (tpixmap, "gnustep_wallpaper-inversed-2560x1600.png", gray20);
+  UTitleBack = (dgradient, "#1b2128", "#10161b");
+  NormalCursor = (builtin, left_ptr);
+  IconTitleFont = "Liberation Sans,sans serif:pixelsize=9";
+  PTitleBack = (dgradient, "#1e2a36", "#121922");
+  WindowTitleFont = "Liberation Sans,sans serif:bold:pixelsize=12";
+  UTitleColor = "#edf4ff";
+  MenuDisabledColor = "#6d7787";
+  ClipTitleFont = "Liberation Sans:bold:pixelsize=10";
+  MenuStyle = flat;
+  MenuTextBack = (hgradient, "#171c22", "#12171d");
+  PTitleColor = "#edf4ff";
+  IconBack = (dgradient, "#1d2830", "#0f1419");
+  MenuTitleBack = (hgradient, "#1a222a", "#121920");
+  DisplayFont = "Liberation Sans,sans serif:pixelsize=12";
+  FTitleBack = (dgradient, "#1f2a33", "#111820");
+  WindowTitleExtendSpace = 0;
+  TitleJustify = left;
+  CClipTitleColor = "#9fb0bf";
+  ResizebarBack = (solid, "#1a1f27");
+  MenuTextColor = "#edf4ff";
+  ClipTitleColor = "#eaf2ff";
+  IconTitleBack = "#202a38";
+  HighlightTextColor = "#0b1220";
+  IconTitleColor = "#f4f8ff";
+  MenuTitleFont = "Liberation Sans,sans serif:bold:pixelsize=12";
+  MenuTitleColor = "#f4f8ff";
+}
