@@ -2,15 +2,15 @@
     GSThemeAuthors = (
 	"0smiridium"
     );
-    GSThemeDetails = "A modern dark theme with Rik icons.";
+    GSThemeDetails = "Refined dark theme inspired by modern UI design. Clean typography, soft contrast, with Rik icons.";
     GSThemeDomain = {
 	GSBackHandlesWindowDecorations = YES;
-	GSMenuBarHeight = 26;
-	GSMenuItemHeight = 26;
-	GSMenuSeparatorHeight = 5;
+	GSMenuBarHeight = 30;
+	GSMenuItemHeight = 30;
+	GSMenuSeparatorHeight = 6;
 	GSScrollViewNoInnerBorder = YES;
 	GSScrollerButtonsOffset = 0;
-	GSScrollerDefaultWidth = "13.0";
+	GSScrollerDefaultWidth = "14.0";
 	GSScrollerKnobOvershoot = "1.0";
 	GSScrollerArrowsSameEnd = NO;
 	NSInterfaceStyleDefault = NSMacintoshInterfaceStyle;
@@ -64,12 +64,6 @@
 	GSScrollerVerticalSlot = {
 	    FileName = "GSScrollerVerticalSlot.9.png";
 	};
-	GSScrollerHorizontalSlot = {
-	    FileName = "GSScrollerHorizontalSlot.9.png";
-	};
-	GSScrollerVerticalSlot = {
-	    FileName = "GSScrollerVerticalSlot.9.png";
-	};
     };
-    GSThemeVersion = "0.1";
+    GSThemeVersion = "0.3";
 }
