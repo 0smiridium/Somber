@@ -31,9 +31,9 @@ See `INSTALL` for platform-specific installation instructions.
 
 ## Screenshots
 
-_Old screenshot available in the repository (updated screenshots coming)_  
-![screenshot](https://github.com/BertrandDekoninck/Sombre/blob/master/Screenshot.png)
-
+_Old screenshot_  
+![Old screenshot](https://github.com/BertrandDekoninck/Sombre/blob/master/Screenshot.png)
+![Old screenshot](https://github.com/0smiridium/Somber/blob/master/Interface.png)
 ## License
 
 GPL v3 — See `COPYING` for details.
