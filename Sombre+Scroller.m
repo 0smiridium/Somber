@@ -4,127 +4,90 @@
 #include "SombreScrollerArrowCell.h"
 
 @interface Sombre(SombreScroller)
-
 @end
 
 @implementation Sombre(SombreScroller)
 
-/* NSScroller themeing. */
-
-- (NSButtonCell*) cellForScrollerArrow: (NSScrollerArrow)arrow
-			    horizontal: (BOOL)horizontal
+/* Thin overlay-style scrollers that match the new rounded control language. */
+- (NSButtonCell*) cellForScrollerArrow: (NSScrollerArrow) arrow
+                            horizontal: (BOOL) horizontal
 {
-  SombreScrollerArrowCell	*cell;
-  NSString	*name;
+  SombreScrollerArrowCell *cell = [SombreScrollerArrowCell new];
+  NSString *name;
 
-  cell = [SombreScrollerArrowCell new];
-  [cell setBezelStyle: NSRoundRectBezelStyle];
+  [cell setBezelStyle: NSRoundedBezelStyle];
+  [cell setHighlightsBy: NSChangeBackgroundCellMask | NSContentsCellMask];
+  [cell setImagePosition: NSImageOnly];
+
   if (horizontal)
     {
       if (arrow == NSScrollerDecrementArrow)
-	{
-	  [cell setHighlightsBy:
-	    NSChangeBackgroundCellMask | NSContentsCellMask];
-	  [cell setImage: [NSImage imageNamed: @"common_ArrowLeft"]];
-	  [cell setImagePosition: NSImageOnly];
+        {
+          [cell setImage: [NSImage imageNamed: @"common_ArrowLeft"]];
+          [cell setArrowType: SombreScrollerArrowLeft];
           name = GSScrollerLeftArrow;
-    [cell setArrowType: SombreScrollerArrowLeft];
-	}
+        }
       else
-	{
-	  [cell setHighlightsBy:
-	    NSChangeBackgroundCellMask | NSContentsCellMask];
-      [cell setImage: [NSImage imageNamed: @"common_ArrowRight"]];
-      [cell setImagePosition: NSImageOnly];
-      name = GSScrollerRightArrow;
-    [cell setArrowType: SombreScrollerArrowRight];
-	}
+        {
+          [cell setImage: [NSImage imageNamed: @"common_ArrowRight"]];
+          [cell setArrowType: SombreScrollerArrowRight];
+          name = GSScrollerRightArrow;
+        }
+    }
+  else if (arrow == NSScrollerDecrementArrow)
+    {
+      [cell setImage: [NSImage imageNamed: @"common_ArrowUp"]];
+      [cell setArrowType: SombreScrollerArrowUp];
+      name = GSScrollerUpArrow;
     }
   else
     {
-      if (arrow == NSScrollerDecrementArrow)
-	{
-	  [cell setHighlightsBy:
-	    NSChangeBackgroundCellMask | NSContentsCellMask];
-      [cell setImage: [NSImage imageNamed: @"common_ArrowUp"]];
-      [cell setImagePosition: NSImageOnly];
-      name = GSScrollerUpArrow;
-    [cell setArrowType: SombreScrollerArrowUp];
-	}
-      else
-	{
-	  [cell setHighlightsBy:
-	    NSChangeBackgroundCellMask | NSContentsCellMask];
-	  [cell setImage: [NSImage imageNamed: @"common_ArrowDown"]];
-	  [cell setImagePosition: NSImageOnly];
-          name = GSScrollerDownArrow;
-    [cell setArrowType: SombreScrollerArrowDown];
-	}
+      [cell setImage: [NSImage imageNamed: @"common_ArrowDown"]];
+      [cell setArrowType: SombreScrollerArrowDown];
+      name = GSScrollerDownArrow;
     }
+
   [self setName: name forElement: cell temporary: YES];
   RELEASE(cell);
   return cell;
 }
 
-- (NSCell*) cellForScrollerKnob: (BOOL)horizontal
+- (NSCell*) cellForScrollerKnob: (BOOL) horizontal
 {
-  NSButtonCell	*cell;
-
-  cell = [SombreScrollerKnobCell new];
+  SombreScrollerKnobCell *cell = [SombreScrollerKnobCell new];
   [cell setButtonType: NSMomentaryChangeButton];
   [cell setBezelStyle: NSRoundedBezelStyle];
   [cell setImagePosition: NSImageOnly];
-
   [cell setTitle: @""];
-  if (horizontal)
-    {
-      [self setName: GSScrollerHorizontalKnob forElement: cell temporary: YES];
-    }
-  else
-    {
-      [self setName: GSScrollerVerticalKnob forElement: cell temporary: YES];
-    }
+
+  [self setName: (horizontal ? GSScrollerHorizontalKnob : GSScrollerVerticalKnob)
+      forElement: cell
+       temporary: YES];
   RELEASE(cell);
   return cell;
 }
 
-- (NSCell*) cellForScrollerKnobSlot: (BOOL)horizontal
+- (NSCell*) cellForScrollerKnobSlot: (BOOL) horizontal
 {
-  GSDrawTiles   		*tiles;
-  SombreScrollerKnobSlotCell	*cell;
-  NSColor			*color;
-  NSString      		*name;
+  SombreScrollerKnobSlotCell *cell = [SombreScrollerKnobSlotCell new];
+  NSString *name = horizontal ? GSScrollerHorizontalSlot : GSScrollerVerticalSlot;
+  NSColor *color = [self colorNamed: name state: GSThemeNormalState];
 
-  if (horizontal)
-    {
-      name = GSScrollerHorizontalSlot;
-    }
-  else
-    {
-      name = GSScrollerVerticalSlot;
-    }
-
-  tiles = [self tilesNamed: name state: GSThemeNormalState];
-  color = [self colorNamed: name state: GSThemeNormalState];
-
-  cell = [SombreScrollerKnobSlotCell new];
-  [cell setBordered: false];
+  [cell setBordered: NO];
   [cell setTitle: nil];
   [cell setHorizontal: horizontal];
   [self setName: name forElement: cell temporary: YES];
 
-  if (color == nil)
-    {
-      color = [NSColor scrollBarColor];
-    }
-  [cell setBackgroundColor: color];
+  /* Subtle, dark slot; knob itself is neutral and uses accent on interaction. */
+  [cell setBackgroundColor: color ?: [NSColor colorWithCalibratedWhite:0.12 alpha:1.0]];
+
   RELEASE(cell);
   return cell;
 }
-// REMEMBER THIS SETTING
+
 - (float) defaultScrollerWidth
 {
-  return 16.0;
+  return 8.0;
 }
 
 - (BOOL) scrollViewUseBottomCorner

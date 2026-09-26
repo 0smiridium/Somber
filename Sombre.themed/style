@@ -1,54 +1,41 @@
 {
-  /* Typography: Modern, refined sans-serif stack */
-  LargeDisplayFont = "Liberation Sans,sans serif:pixelsize=26";
-  WindowTitleFont = "Liberation Sans,sans serif:bold:pixelsize=13";
-  MenuTitleFont = "Liberation Sans,sans serif:bold:pixelsize=11";
-  MenuTextFont = "Liberation Sans,sans serif:pixelsize=11";
-  DisplayFont = "Liberation Sans,sans serif:pixelsize=11";
-  IconTitleFont = "Liberation Sans,sans serif:pixelsize=10";
-  ClipTitleFont = "Liberation Sans,sans serif:bold:pixelsize=11";
+  /* Ultra-modern typography & spacing */
+  LargeDisplayFont = "Liberation Sans,sans serif:pixelsize=28";
+  WindowTitleFont  = "Inter, Liberation Sans, sans serif:bold:pixelsize=14";
+  MenuTitleFont    = "Inter, Liberation Sans, sans serif:medium:pixelsize=12";
+  MenuTextFont     = "Inter, Liberation Sans, sans serif:pixelsize=12";
+  DisplayFont      = "Inter, Liberation Sans, sans serif:pixelsize=12";
+  IconTitleFont    = "Inter, Liberation Sans, sans serif:pixelsize=10";
+  ClipTitleFont    = "Inter, Liberation Sans, sans serif:bold:pixelsize=11";
 
-  /* Color Palette: Refined dark with emphasis on contrast and readability */
-  MenuTextColor = "#f0f4f9";
-  MenuTitleColor = "#fafbfc";
-  FTitleColor = "#f0f4f9";
-  UTitleColor = "#f0f4f9";
-  PTitleColor = "#f0f4f9";
-  MenuDisabledColor = "#8899aa";
-  ClipTitleColor = "#f0f4f9";
-  IconTitleColor = "#f0f4f9";
-  CClipTitleColor = "#a8b8c8";
-  HighlightColor = "#0d6dff";
+  /* Palette: very dark surfaces, single bold purple accent */
+  MenuTextColor    = "#eef2ff";
+  MenuTitleColor   = "#fbfbff";
+  FTitleColor      = "#f7f7fb";
+  MenuDisabledColor= "#6b778a";
+  CClipTitleColor  = "#97a8c3";
+  HighlightColor   = "#7c4dff"; /* purple accent */
   HighlightTextColor = "#ffffff";
 
-  /* Window Decorations: Softer, more refined appearance */
-  FTitleBack = (dgradient, "#2a3139", "#1f2329");
-  UTitleBack = (dgradient, "#343c45", "#25292f");
-  PTitleBack = (dgradient, "#2d3541", "#202834");
-  
-  /* Menu System: Clean, unified, minimal gradient */
-  MenuTitleBack = (hgradient, "#25292f", "#1f2329");
-  MenuTextBack = (solid, "#1f2329");
-  
-  /* Resizing and UI Elements */
-  ResizebarBack = (solid, "#1a1e24");
-  IconBack = (dgradient, "#2f3845", "#1a1f27");
-  IconTitleBack = "#252d37";
-  
-  /* Workspace and Layout */
-  WorkspaceBack = (solid, "#0f1318");
-  
-  /* Cursor and Interaction */
+  /* Flat, minimal chrome with elevated contrast for active elements */
+  FTitleBack       = (solid, "#0f1114");
+  UTitleBack       = (solid, "#0b0d10");
+  PTitleBack       = (solid, "#0c0e12");
+
+  /* Taskbar/menu surface tuned for a modern dock-like feel */
+  MenuTitleBack    = (solid, "#07070a");
+  MenuTextBack     = (solid, "#0b0d10");
+  WorkspaceBack    = (solid, "#060609");
+
+  /* Cursor */
   NormalCursor = (builtin, left_ptr);
-  
-  /* Menu and Title Spacing: More generous for modern feel */
-  MenuTextExtendSpace = 2;
-  MenuTitleExtendSpace = 2;
-  WindowTitleExtendSpace = 0;
-  
-  /* Title Alignment */
-  TitleJustify = center;
-  
-  /* Menu Style */
+
+  /* Spacious, touch-friendly spacing */
+  MenuTextExtendSpace = 6;
+  MenuTitleExtendSpace = 6;
+  WindowTitleExtendSpace = 4;
+
+  /* Left aligned titles for quick scanning */
+  TitleJustify = left;
   MenuStyle = flat;
 }
