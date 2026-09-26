@@ -1,31 +1,17 @@
-# Somber — A Modern Dark Theme for GNUstep
+# Somber — A Modern Dark Theme for GNUstep (Purple Accented)
 
-A dark GNUstep theme with quiet surfaces, crisp controls, and a clearer desktop/taskbar hierarchy. It remains compatible with Rik icon sets and WindowMaker.
+A dark GNUstep theme with quiet surfaces, crisp controls, and a bold purple accent for interactions.
 
 **Original Author:** Bertrand Dekoninck (2021)  
 **Current Maintainer:** 0smiridium (2026)  
-**Version:** 1.1
+**Version:** 1.2
 
-## What’s new
+## What’s new in this update
 
-- Modern flat control rendering with subtle one-pixel borders instead of heavy gradients and bevels.
-- A cleaner dark palette with stronger text hierarchy and a restrained blue interaction accent.
-- Roomier menu/title spacing and left-aligned window titles for easier scanning.
-- A more compact, consistent scroller treatment that matches the updated controls.
-- A darker, calmer menu/title strip that works better as a taskbar surface.
+- Replaced blue accent with a modern purple accent (#7C4DFF).
+- Larger, rounded controls and thinner overlay scrollbars for a contemporary desktop feel.
+- Flat, near-black surfaces with high-contrast text and clear active states.
 
-## Design direction
-
-Somber keeps GNUstep’s character while removing visual noise associated with older desktop themes. Surfaces use near-black blue-gray tones, controls rely on contrast rather than faux depth, and blue is reserved for selected and focused states.
-
-## Installation
-
-See `INSTALL` for platform-specific installation instructions.
-
-## Screenshots
-
-![Somber preview](https://github.com/0smiridium/Somber/blob/master/Interface.png)
-
-## License
-
-GPL v3 — See `COPYING` for details.
+## Notes
+- Wallpapers and preview assets were not modified in this pass.
+- The theme aims to remain lightweight while providing a modern, cohesive look.

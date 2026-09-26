@@ -24,10 +24,14 @@ static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
              state: (GSThemeControlState) state
 {
   NSColor *fillColor = [self buttonColorInCell: cell forState: state];
-  NSColor *borderColor = [fillColor shadowWithLevel: 0.35];
+  NSColor *accent = [NSColor colorWithCalibratedRed:0.486 green:0.302 blue:1.0 alpha:1.0]; /* #7C4DFF */
+  NSColor *borderColor = (state == GSThemeHighlightedState || state == GSThemeSelectedState ||
+                          state == GSThemeHighlightedFirstResponderState || state == GSThemeSelectedFirstResponderState)
+                          ? accent
+                          : [fillColor shadowWithLevel: 0.25];
 
-  /* Keep controls crisp and flat; the accent is reserved for interaction. */
-  DrawRoundedRect(NSInsetRect(frame, 0.5, 0.5), 4.0,
+  /* Flat rounded controls; larger radius for a modern feel */
+  DrawRoundedRect(NSInsetRect(frame, 0.5, 0.5), 6.0,
                   fillColor, borderColor);
 }
 
@@ -54,7 +58,10 @@ static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
                  state: (GSThemeControlState) state
 {
   NSColor *backgroundColor = [self buttonColorInCell: cell forState: state];
-  NSColor *borderColor = [backgroundColor shadowWithLevel: 0.35];
+  NSColor *accent = [NSColor colorWithCalibratedRed:0.486 green:0.302 blue:1.0 alpha:1.0];
+  NSColor *borderColor = (state == GSThemeHighlightedState || state == GSThemeSelectedState)
+                          ? accent
+                          : [backgroundColor shadowWithLevel: 0.25];
 
   [backgroundColor setFill];
   [path fill];

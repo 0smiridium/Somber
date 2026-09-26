@@ -8,7 +8,7 @@
 
 @implementation Sombre(SombreScroller)
 
-/* Compact, quiet scrollers that match the flat control language. */
+/* Thin overlay-style scrollers that match the new rounded control language. */
 - (NSButtonCell*) cellForScrollerArrow: (NSScrollerArrow) arrow
                             horizontal: (BOOL) horizontal
 {
@@ -77,7 +77,9 @@
   [cell setTitle: nil];
   [cell setHorizontal: horizontal];
   [self setName: name forElement: cell temporary: YES];
-  [cell setBackgroundColor: color ?: [NSColor scrollBarColor]];
+
+  /* Subtle, dark slot; knob itself is neutral and uses accent on interaction. */
+  [cell setBackgroundColor: color ?: [NSColor colorWithCalibratedWhite:0.12 alpha:1.0]];
 
   RELEASE(cell);
   return cell;
@@ -85,7 +87,7 @@
 
 - (float) defaultScrollerWidth
 {
-  return 12.0;
+  return 8.0;
 }
 
 - (BOOL) scrollViewUseBottomCorner
