@@ -1,29 +1,22 @@
-# Somber — A Refined Dark Theme for GNUstep
+# Somber — A Modern Dark Theme for GNUstep
 
-A dark theme for GNUstep freely redistributable under the terms of the GPLv3 License.
+A dark GNUstep theme with quiet surfaces, crisp controls, and a clearer desktop/taskbar hierarchy. It remains compatible with Rik icon sets and WindowMaker.
 
 **Original Author:** Bertrand Dekoninck (2021)  
 **Current Maintainer:** 0smiridium (2026)  
-**Version:** 1.0
+**Version:** 1.1
 
-## Features
+## What’s new
 
-- **Refined Palette**: Soft, carefully-balanced dark colors inspired by modern design principles
-- **Improved Typography**: Clean sans-serif fonts with generous letter-spacing for readability
-- **Generous Spacing**: Enhanced menu bar and control sizing for contemporary ergonomics
-- **Flat, Modern Design**: Minimalist aesthetic with subtle gradients for depth
-- **Rik Icon Integration**: Compatible with Rik icon sets for a cohesive look
-- **WindowMaker Support**: Includes `Sombre.themed` configuration and complementary wallpapers
+- Modern flat control rendering with subtle one-pixel borders instead of heavy gradients and bevels.
+- A cleaner dark palette with stronger text hierarchy and a restrained blue interaction accent.
+- Roomier menu/title spacing and left-aligned window titles for easier scanning.
+- A more compact, consistent scroller treatment that matches the updated controls.
+- A darker, calmer menu/title strip that works better as a taskbar surface.
 
-## Visual Direction
+## Design direction
 
-This theme draws inspiration from modern dark mode design (Big Sur era and beyond) while maintaining GNUstep's unique character. The palette emphasizes readability and visual hierarchy through contrast rather than heavy ornamentation.
-
-### Color Philosophy
-- **Base Dark**: Deep, cool grays (`#1a1e24` – `#343c45`) for backgrounds
-- **Text**: Light, readable blues (`#f0f4f9` – `#fafbfc`) for contrast
-- **Accent**: Modern blue (`#0d6dff`) for highlights and interactive states
-- **Disable State**: Muted blue-gray (`#8899aa`) for reduced prominence
+Somber keeps GNUstep’s character while removing visual noise associated with older desktop themes. Surfaces use near-black blue-gray tones, controls rely on contrast rather than faux depth, and blue is reserved for selected and focused states.
 
 ## Installation
 
@@ -31,9 +24,8 @@ See `INSTALL` for platform-specific installation instructions.
 
 ## Screenshots
 
-_Old screenshot_  
-![Old screenshot](https://github.com/BertrandDekoninck/Sombre/blob/master/Screenshot.png)
-![Old screenshot](https://github.com/0smiridium/Somber/blob/master/Interface.png)
+![Somber preview](https://github.com/0smiridium/Somber/blob/master/Interface.png)
+
 ## License
 
 GPL v3 — See `COPYING` for details.

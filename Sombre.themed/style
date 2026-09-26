@@ -1,5 +1,5 @@
 {
-  /* Typography: Modern, refined sans-serif stack */
+  /* Modern typography: compact, readable, and consistent across controls. */
   LargeDisplayFont = "Liberation Sans,sans serif:pixelsize=26";
   WindowTitleFont = "Liberation Sans,sans serif:bold:pixelsize=13";
   MenuTitleFont = "Liberation Sans,sans serif:bold:pixelsize=11";
@@ -8,47 +8,41 @@
   IconTitleFont = "Liberation Sans,sans serif:pixelsize=10";
   ClipTitleFont = "Liberation Sans,sans serif:bold:pixelsize=11";
 
-  /* Color Palette: Refined dark with emphasis on contrast and readability */
-  MenuTextColor = "#f0f4f9";
-  MenuTitleColor = "#fafbfc";
-  FTitleColor = "#f0f4f9";
-  UTitleColor = "#f0f4f9";
-  PTitleColor = "#f0f4f9";
-  MenuDisabledColor = "#8899aa";
-  ClipTitleColor = "#f0f4f9";
-  IconTitleColor = "#f0f4f9";
-  CClipTitleColor = "#a8b8c8";
-  HighlightColor = "#0d6dff";
+  /* Calm charcoal surfaces with a single, high-visibility accent. */
+  MenuTextColor = "#e7edf5";
+  MenuTitleColor = "#f7f9fc";
+  FTitleColor = "#f5f7fa";
+  UTitleColor = "#c7d0dc";
+  PTitleColor = "#dce4ee";
+  MenuDisabledColor = "#718096";
+  ClipTitleColor = "#e7edf5";
+  IconTitleColor = "#e7edf5";
+  CClipTitleColor = "#93a4b8";
+  HighlightColor = "#4f8cff";
   HighlightTextColor = "#ffffff";
 
-  /* Window Decorations: Softer, more refined appearance */
-  FTitleBack = (dgradient, "#2a3139", "#1f2329");
-  UTitleBack = (dgradient, "#343c45", "#25292f");
-  PTitleBack = (dgradient, "#2d3541", "#202834");
-  
-  /* Menu System: Clean, unified, minimal gradient */
-  MenuTitleBack = (hgradient, "#25292f", "#1f2329");
-  MenuTextBack = (solid, "#1f2329");
-  
-  /* Resizing and UI Elements */
-  ResizebarBack = (solid, "#1a1e24");
-  IconBack = (dgradient, "#2f3845", "#1a1f27");
-  IconTitleBack = "#252d37";
-  
-  /* Workspace and Layout */
-  WorkspaceBack = (solid, "#0f1318");
-  
-  /* Cursor and Interaction */
+  /* Restrained window chrome: depth comes from contrast, not bevels. */
+  FTitleBack = (solid, "#252d38");
+  UTitleBack = (solid, "#1b222c");
+  PTitleBack = (solid, "#202936");
+
+  /* The menu/title strip doubles as a clean taskbar surface. */
+  MenuTitleBack = (solid, "#151b24");
+  MenuTextBack = (solid, "#1b222c");
+
+  ResizebarBack = (solid, "#11161e");
+  IconBack = (solid, "#202936");
+  IconTitleBack = "#202936";
+  WorkspaceBack = (solid, "#0d1117");
+
   NormalCursor = (builtin, left_ptr);
-  
-  /* Menu and Title Spacing: More generous for modern feel */
-  MenuTextExtendSpace = 2;
-  MenuTitleExtendSpace = 2;
-  WindowTitleExtendSpace = 0;
-  
-  /* Title Alignment */
-  TitleJustify = center;
-  
-  /* Menu Style */
+
+  /* Roomier hit targets without oversized, old-style chrome. */
+  MenuTextExtendSpace = 4;
+  MenuTitleExtendSpace = 5;
+  WindowTitleExtendSpace = 2;
+
+  /* Left-aligned titles scan more naturally in a modern desktop layout. */
+  TitleJustify = left;
   MenuStyle = flat;
 }
