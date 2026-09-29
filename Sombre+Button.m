@@ -2,7 +2,7 @@
 #import "Sombre+Button.h"
 
 static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
-                            NSColor *borderColor)
+                            NSColor *borderColor, CGFloat lineWidth)
 {
   NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect: rect
                                                         xRadius: radius
@@ -11,8 +11,18 @@ static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
   [path fill];
 
   [borderColor setStroke];
-  [path setLineWidth: 1.0];
+  [path setLineWidth: lineWidth];
   [path stroke];
+}
+
+static void DrawShadow(NSRect rect, CGFloat radius, CGFloat blur)
+{
+  NSShadow *shadow = [[NSShadow alloc] init];
+  [shadow setShadowOffset: NSMakeSize(0, -2)];
+  [shadow setShadowBlurRadius: blur];
+  [shadow setShadowColor: [NSColor colorWithCalibratedWhite: 0 alpha: 0.15]];
+  [shadow set];
+  [shadow release];
 }
 
 @implementation Sombre(Button)
@@ -21,36 +31,65 @@ static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
                 in: (NSCell*) cell
               view: (NSView*) view
              style: (int) style
-             state: (GSThemeControlState) state
+            state: (GSThemeControlState) state
 {
   NSColor *fillColor = [self buttonColorInCell: cell forState: state];
-  NSColor *accent = [NSColor colorWithCalibratedRed:0.486 green:0.302 blue:1.0 alpha:1.0]; /* #7C4DFF */
-  NSColor *borderColor = (state == GSThemeHighlightedState || state == GSThemeSelectedState ||
-                          state == GSThemeHighlightedFirstResponderState || state == GSThemeSelectedFirstResponderState)
-                          ? accent
-                          : [fillColor shadowWithLevel: 0.25];
-
-  /* Flat rounded controls; larger radius for a modern feel */
-  DrawRoundedRect(NSInsetRect(frame, 0.5, 0.5), 6.0,
-                  fillColor, borderColor);
+  NSColor *accentColor = [NSColor colorWithCalibratedRed: 0.502 green: 0.306 blue: 1.0 alpha: 1.0]; /* #8050FF - Updated accent */
+  NSColor *borderColor;
+  CGFloat cornerRadius = 8.0; /* Modern larger radius */
+  CGFloat lineWidth = 0.5;
+  
+  /* Determine border color based on state */
+  if (state == GSThemeHighlightedState || state == GSThemeSelectedState ||
+      state == GSThemeHighlightedFirstResponderState || state == GSThemeSelectedFirstResponderState)
+    {
+      borderColor = accentColor;
+      lineWidth = 1.5; /* Thicker border for active state */
+    }
+  else
+    {
+      borderColor = [fillColor shadowWithLevel: 0.3];
+    }
+  
+  /* Draw subtle shadow for depth */
+  if (state != GSThemeDisabledState)
+    {
+      DrawShadow(NSInsetRect(frame, 1, 1), cornerRadius, 3.0);
+    }
+  
+  /* Draw flat rounded button with modern styling */
+  DrawRoundedRect(NSInsetRect(frame, 0.5, 0.5), cornerRadius, fillColor, borderColor, lineWidth);
 }
 
 - (NSColor*) buttonColorInCell: (NSCell*) cell
                        forState: (GSThemeControlState) state
 {
+  NSColor *accentColor = [NSColor colorWithCalibratedRed: 0.502 green: 0.306 blue: 1.0 alpha: 1.0];
+  
   if (state == GSThemeHighlightedFirstResponderState ||
       state == GSThemeSelectedFirstResponderState)
-    return [NSColor alternateSelectedControlColor];
+    {
+      /* Modern accent color for primary interaction */
+      return accentColor;
+    }
 
   if (state == GSThemeHighlightedState ||
       state == GSThemeSelectedState)
-    return [NSColor selectedControlColor];
+    {
+      /* Lighter accent for secondary interaction */
+      return [accentColor blendedColorWithFraction: 0.3 ofColor: [NSColor controlBackgroundColor]];
+    }
 
   if (state == GSThemeDisabledState)
-    return [[NSColor controlColor] blendedColorWithFraction: 0.45
+    {
+      /* Subtle disabled state */
+      return [[NSColor controlColor] blendedColorWithFraction: 0.3
                                                    ofColor: [NSColor controlBackgroundColor]];
+    }
 
-  return [NSColor controlBackgroundColor];
+  /* Default button color - slightly elevated surface */
+  return [[NSColor controlBackgroundColor] blendedColorWithFraction: 0.05
+                                                         ofColor: [NSColor whiteColor]];
 }
 
 - (void) drawPathButton: (NSBezierPath*) path
@@ -58,15 +97,25 @@ static void DrawRoundedRect(NSRect rect, CGFloat radius, NSColor *fillColor,
                  state: (GSThemeControlState) state
 {
   NSColor *backgroundColor = [self buttonColorInCell: cell forState: state];
-  NSColor *accent = [NSColor colorWithCalibratedRed:0.486 green:0.302 blue:1.0 alpha:1.0];
-  NSColor *borderColor = (state == GSThemeHighlightedState || state == GSThemeSelectedState)
-                          ? accent
-                          : [backgroundColor shadowWithLevel: 0.25];
+  NSColor *accentColor = [NSColor colorWithCalibratedRed: 0.502 green: 0.306 blue: 1.0 alpha: 1.0];
+  NSColor *borderColor;
+  CGFloat lineWidth = 0.5;
+  
+  if (state == GSThemeHighlightedState || state == GSThemeSelectedState ||
+      state == GSThemeHighlightedFirstResponderState || state == GSThemeSelectedFirstResponderState)
+    {
+      borderColor = accentColor;
+      lineWidth = 1.5;
+    }
+  else
+    {
+      borderColor = [backgroundColor shadowWithLevel: 0.3];
+    }
 
   [backgroundColor setFill];
   [path fill];
   [borderColor setStroke];
-  [path setLineWidth: 1.0];
+  [path setLineWidth: lineWidth];
   [path stroke];
 }
 
